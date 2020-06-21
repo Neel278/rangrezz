@@ -79,7 +79,7 @@ box-shadow: 19px 19px 50px -17px rgba(0,0,0,0.5);
         <div class="mobile-toggle"> <span></span> <span></span> <span></span> </div>
         <nav>
           <ul>
-            <li><a class="out animsition-link" href="index.php">HOME</a></li>
+            <li><a class="out animsition-link" href="{{route('home')}}">HOME</a></li>
             <li class="line"><a class="out animsition-link" href="Image-Gallery/index2.html">GALLERY</a></li>
             <li class="line"><a class="out animsition-link" href="auction.php">AUCTION</a></li>
             <li class="line"><a class="out animsition-link" href="register.php">REGISTER</a></li>
