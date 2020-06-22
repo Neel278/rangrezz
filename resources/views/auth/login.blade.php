@@ -48,11 +48,16 @@
        <div class="col-md-6 text-center " style=" background-color: #0099ff; color:white;" >
         <div class="align-self-center">
           <br>
-          <br>
-        <h1 style="font-size: 2rem;text-decoration: underline;">Login for Buyer</h1>
+         
+        <h1 style="font-size: 2rem;text-decoration: underline;">Login Page</h1>
         <br>
         <br>
-        <p>The login page  having two login  forms ,<br>(1)Login for seller : for those, who wants to sell their artworks.<br>(2)login for Buyer : for those, who wants to buy artworks from art auctions.</p>
+        <div class="view overlay">
+            <img src="{{ asset('images/user-2.jpg') }}" alt="user-register/login pic" height="500" width="582" >
+            <div class="mask flex-center rgba-blue-light">
+              <h2 class="white-text">Login</h2>
+            </div>
+          </div>
       </div>
       </div>
         

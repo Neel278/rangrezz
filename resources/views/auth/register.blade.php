@@ -169,11 +169,15 @@ else
     <div class="col-md-6 text-center " style=" background-color: #0099ff; color:white;" >
       <div class="align-self-center">
         <br>
-        <br>
       <h1 style="font-size: 2rem;text-decoration: underline;">Registration</h1>
       <br>
       <br>
-      {{-- <p>The page Registration having two registration forms ,<br>(1)Registration for seller : for them, who wants to sell their artworks.<br>(2)Registration for Buyer : for them, who wants to buy artworks from art auctions.</p> --}}
+      <div class="view overlay">
+      <img src="{{ asset('images/user-1.jpg') }}" alt="user-login pic" height="1060" width="582" >
+      <div class="mask flex-center rgba-blue-light">
+        <h2 class="white-text">Signup</h2>
+      </div>
+    </div>
     </div>
     </div>
     <div class="col-md-6" style="" >
