@@ -178,7 +178,13 @@ else
     </div>
     <div class="col-md-6" style="" >
       <p id="head" style="color: red;"></p>
-    
+      @if(!$errors->isEmpty())
+            <div class = "alert alert-danger">                      
+                @foreach ($errors->all(':message') as $input_error)
+                {{ $input_error }}
+                @endforeach 
+            </div> 
+        @endif
       <form method="POST" action="{{ route('register') }}" class="p-5" >
         @csrf
 
@@ -186,34 +192,19 @@ else
         <div class="form-group">
             <label for="lname1">Enter your lastname: </label>
               <input type="text" class="form-control" placeholder="surname" id="lname1" name="lastname" required>
-              @error('lastname')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
               <p id="p1"></p>
          </div>
           <div class="form-group">
             <label for="fname1">Enter your Firstname: </label>
               <input type="text" class="form-control" placeholder="your name" id="fname1" name="firstname" required>
-             
-              @error('firstname')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-
+        
               <p id="p2"></p>
          </div>
          <div class="form-group">
            <label for="exampleRadios1">Gender:</label>
            <div class="form-check">
       <input class="form-check-input male" type="radio" name="gender" id="exampleRadios1" value="male" required>
-      @error('gender')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
+     
       <label class="form-check-label" for="exampleRadios1">
         Male
       </label>
@@ -235,64 +226,32 @@ else
      <div class="form-group">
         <label for="exampleFormControlTextarea2" style="padding-bottom:  10px;">Address:</label>
         <textarea class="form-control" id="exampleFormControlTextarea2" rows="2" name="address" required></textarea>
-        @error('address')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
+       
       </div>
     <div class="form-group">
         <label for="datepicker">Birthdate:</label>
         <input type="date"  class="form-control" name="birthdate" required>
-        @error('birthdate')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
+        
     </div>
         <div class="form-group">
             <label for="exampleFormControlInput1">Email address:</label>
             <input type="email" class="form-control" id="exampleFormControlInput2" name="email" placeholder="name@example.com" required>
-
-            @error('email')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
         </div>
         <div class="form-group">
             <label for="username">Username: </label>
               <input type="text" class="form-control" placeholder="username" id="username" name="username" required>
               <p id="p3"></p>
-
-              @error('username')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
          </div>
          <div class="form-group">
         <label for="inputPassword" >Password:</label>
       
            <input type="password" class="form-control" id="inputPassword" placeholder="Password" name ="password" required>
-
-            @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
             <p id="p4"></p>
         </div>
          <div class="form-group">
         <label for="inputPassword1" >Confirm Password:</label>
       
           <input type="password" class="form-control" id="inputPassword1" placeholder="Password" name ="password_confirmation" required>
-
-            @error('password_confirmation')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
            <p id="p5"></p>
         </div>
       <div class="form-group ">
@@ -309,21 +268,10 @@ else
             <option value="What is your grandmother's first name?">What is your grandmother's first name?</option>
             <option value="Where did you vacation last year?">Where did you vacation last year?</option>
           </select>
-            @error('secque')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
         </div>
          <div class="form-group">
             <label for="answer">Answer: </label>
               <input type="text" class="form-control" placeholder="answer" id="answer" name="answer" required>
-
-              @error('answer')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
          </div>
          <div class="form-group">
            <button id="submit" type="submit" class="btn btn-primary" name="Sellsubmit">

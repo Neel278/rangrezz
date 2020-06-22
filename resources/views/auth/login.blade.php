@@ -1,33 +1,36 @@
 @extends('layouts.master')
 
+@section('title')
+    Rangrezz | Login
+@endsection
+
 @section('content')
+
 <div class="container box-shadow p-5 m-5">
     <div class="row">
      
       <div class="col-md-6">
-         <form class="form p-5" action="{{route('login')}}" method="post">
+        @if(!$errors->isEmpty())
+            <div class = "alert alert-danger">                      
+                @foreach ($errors->all(':message') as $input_error)
+                {{ $input_error }}
+                @endforeach 
+            </div> 
+        @endif
+        <form class="form p-5" action="{{route('login')}}" method="post">
             @csrf
          <i class="fas fa-user fa-5x" style="color: #0099ff;"></i>
          <br>
          <br>
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <div class="form-group">
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required autofocus>
-        @error('email')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
+        <label for="email" class="sr-only">Email address</label>
+        <input type="email" id="email" class="form-control" value="{{ old('email') }}" placeholder="Email address" name="email" required autofocus>
         </div>
         <div class="form-group">
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
-        @error('password')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" id="password" class="form-control" placeholder="Password" name="password" required>
+
         </div>
         <div class="checkbox mb-3">
           <label>
