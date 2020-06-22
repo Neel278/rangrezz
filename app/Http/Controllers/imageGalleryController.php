@@ -13,7 +13,7 @@ class imageGalleryController extends Controller
      */
     public function index()
     {
-        return view('image-gallery');
+        return view('gallery.image-gallery');
     }
 
     /**
