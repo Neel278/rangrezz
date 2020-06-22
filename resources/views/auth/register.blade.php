@@ -170,10 +170,10 @@ else
       <div class="align-self-center">
         <br>
         <br>
-      <h1 style="font-size: 2rem;text-decoration: underline;">Registration for seller</h1>
+      <h1 style="font-size: 2rem;text-decoration: underline;">Registration</h1>
       <br>
       <br>
-      <p>The page Registration having two registration forms ,<br>(1)Registration for seller : for them, who wants to sell their artworks.<br>(2)Registration for Buyer : for them, who wants to buy artworks from art auctions.</p>
+      {{-- <p>The page Registration having two registration forms ,<br>(1)Registration for seller : for them, who wants to sell their artworks.<br>(2)Registration for Buyer : for them, who wants to buy artworks from art auctions.</p> --}}
     </div>
     </div>
     <div class="col-md-6" style="" >
@@ -337,142 +337,6 @@ else
     </form>
    </div>
   </div>
-</div>
-<!--form container ends here-->
-<!-- ========================================== -->
-<br>
-<br>
-<br>
-<div class="container box-shadow" style="">
-
-  <div class="row" style="">
-   
-    <div class="col-md-6" style="" >
-    
-    <form class="p-5" action="registration.php" method="post">
-      <div class="form-group">
-        <label for="Enter your last name">Enter your lastname: </label>
-          <input type="text" class="form-control" placeholder="surname" id="lname" name="lname1" required>
-           <p id="p6"></p>
-     </div>
-      <div class="form-group">
-        <label for="Enter your last name">Enter your Firstname: </label>
-          <input type="text" class="form-control" placeholder="surname" id="fname" name="fname1" required>
-           <p id="p7"></p>
-     </div>
-     <div class="form-group">
-       <label for="gender">Gender:</label>
-       <div class="form-check">
-  <input class="form-check-input" type="radio" name="radio1" id="male" value="male" >
-  <label class="form-check-label" for="exampleRadios1">
-    Male
-  </label>
-</div>
-      <div class="form-check">
-  <input class="form-check-input" type="radio" name="radio1" id="female" value="female" >
-  <label class="form-check-label" for="exampleRadios1">
-    female
-  </label>
-</div>
-      <div class="form-check">
-  <input class="form-check-input" type="radio" name="radio1" id="other" value="custom" >
-  <label class="form-check-label" for="exampleRadios1">
-    Custom
-  </label>
-</div>
-</div>
-<div class="form-group" style="display: none;" id="custom">
-   <label for="inputState"></label>
-      <select id="inputState3" class="form-control" name="pronoun1" required>
-        <option >She:"Wish her a Happy birthday!"</option>
-        <option >He:"Wish him a Happy birthday!"</option>
-        <option >They:"Wish them a Happy birthday!"</option>
-         <option selected>none.</option>
-      </select>
-      <small id="passwordHelpBlock1" class="form-text text-muted " style="margin-top:px; font-size: .8em;">
-Your pronoun is visible to everyone.
-</small>
-        <label for="Enter your last name"></label>
-          <input type="text" class="form-control" placeholder="Gender (Optional)" id="ogender1" name="ogender1" >
-     
-
-</div>
- <div class="form-group">
-    <label for="exampleFormControlTextarea1" style="padding-bottom:  10px;">Address:</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="address1"required></textarea>
-  </div>
-<div class="form-group">
- <label for="datepicker">Birthdate:</label>
-  <input type="date" class="form-control" name="birthdate1" required>
-  <!--<script type="text/javascript">
-    $('#picker1').datetimepicker({
-             timepicker: false,
-             datepicker:true,
-             format:'d-m-Y',
-             weeks:true
-    });
-  </script>-->
-</div>
- <div class="form-group">
-    <label for="exampleFormControlInput1">Email address:</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email1" required>
-  </div>
-   <div class="form-group">
-        <label for="Enter your last name">Desired Username: </label>
-          <input type="text" class="form-control" placeholder="username" id="uname1" name="uname1" required>
-          <p id="p8"></p>
-     </div>
-     <div class="form-group">
-    <label for="inputPassword" >Password:</label>
-  
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password1" required>
-      <p id="p9"></p>
-    </div>
-     <div class="form-group">
-    <label for="inputPassword" >Confirm Password:</label>
-  
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password" name="cpassword1" required>
-      <p id="p10"></p>
-    </div>
-  <div class="form-group ">
-      <label for="inputState" style="margin-bottom: 10px;">Sequrity Question</label>
-      <select id="inputState4" class="form-control" name="secque1" required>
-        <option value="What was your childhood nickname?">What was your childhood nickname?</option>
-        <option value="In what city did you meet your spouse/significant other?">In what city did you meet your spouse/significant other?</option>
-        <option value="What was the name of your elementary / primary school?">What was the name of your elementary / primary school?</option>
-        <option value="What was your favorite place to visit as a child?">What was your favorite place to visit as a child?</option>
-        <option value="What is the country of your ultimate dream vacation?">What is the country of your ultimate dream vacation?</option>
-        <option value="What is the name of your favorite childhood teacher?">What is the name of your favorite childhood teacher?</option>
-        <option value="What was your dream job as a child? ">What was your dream job as a child? </option>
-        <option value="Who was your childhood hero? ">Who was your childhood hero? </option>
-        <option value="What is your grandmother's first name?">What is your grandmother's first name?</option>
-        <option value="Where did you vacation last year?">Where did you vacation last year?</option>
-      </select>
-    </div>
-     <div class="form-group">
-        <label for="Enter your last name">Answer: </label>
-          <input type="text" class="form-control" placeholder="answer" id="answer2" name="answer1" required>
-     </div>
-     <div class="form-group">
-       <button type="Submit" id="submit1" class="btn btn-primary" name="buysubmit">Submit</button>
-       Already have an account?<a href="login.php" title="">click here</a>
-     </div>
-    </form>
-
-    </div>
-     <div class="col-md-6" style=" background-color: #0099ff; color:white;" >
-      <br>
-        <br>
-        <div class="text-center">
-      <h1 style="font-size: 2rem;text-decoration: underline;">Registration for buyer</h1>
-      <br>
-      <br>
-      <p>The page Registration having two registration forms ,<br>(1)Registration for seller : for them, who wants to sell their artworks.<br>(2)Registration for Buyer : for them, who wants to buy artworks from art auctions.</p>
-    </div>
-  </div>
-  </div>
-
-  
 </div>
 <!--form container ends here-->
 <br>
