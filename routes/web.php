@@ -21,6 +21,13 @@ Route::get('/', function () {
 Route::get('/image-gallery', 'imageGalleryController@index')->name('image-gallery');
 Route::get('/contact-us', 'ContactController@index')->name('contact');
 
-Auth::routes();
+// Auth::routes();
+Route::get('/register', function () {
+    return view('user.register');
+})->name('register');
+
+Route::get('/login', function () {
+    return view('user.login');
+})->name('login');
 
 Route::get('/home', 'HomeController@index')->name('home');

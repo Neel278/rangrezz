@@ -81,9 +81,12 @@ box-shadow: 19px 19px 50px -17px rgba(0,0,0,0.5);
           <ul>
             <li><a class="out animsition-link" href="{{route('index')}}">HOME</a></li>
           <li class="line"><a class="out animsition-link" href="{{ route('image-gallery') }}">GALLERY</a></li>
-            <li class="line"><a class="out animsition-link" href="auction.php">AUCTION</a></li>
+            @auth
+          <li class="line"><a class="out animsition-link" href="{{ route('home') }}">DASHBOARD</a></li>
+            @else
           <li class="line"><a class="out animsition-link" href="{{ route('register') }}">REGISTER</a></li>
           <li class="line"><a class="out animsition-link" href="{{ route('login') }}">LOGIN</a></li>
+          @endauth
           <li class="line"><a class="out animsition-link" href="{{ route('contact') }}">CONTACT</a></li>
           </ul>
         </nav>
