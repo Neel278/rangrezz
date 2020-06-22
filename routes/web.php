@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/image-gallery', 'imageGalleryController@index')->name('image-gallery');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
