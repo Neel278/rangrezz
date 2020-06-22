@@ -41,8 +41,8 @@
 		<div class="containers">	
 			<!-- Codrops top bar -->
 			<div class="codrops-top clearfix">
-				<a href="http://tympanus.net/Development/3DBookShowcase/"><strong style="color:white;">Go to Action</strong></a>
-				<span class="right"><a href="http://tympanus.net/codrops/?p=13564"><strong style="color: white">Back to Home </strong></a></span>
+				<a href="{{route('index')}}"><strong style="color:white;">Back To Home</strong></a>
+				{{-- <span class="right"><a href="http://tympanus.net/codrops/?p=13564"><strong style="color: white">Back to Home </strong></a></span> --}}
 			</div><!--/ Codrops top bar -->
 
 			<h1>Rangrezz</h1>
@@ -50,9 +50,8 @@
 			<div id="gr-gallery" class="gr-gallery">
 
 				<div class="gr-main">
-
+                    {{-- ======================================== --}}
 					<figure>
-						
 						<div>
 							<img src="{{asset('gallery/images/images(1).jpg')}}" alt="img01" />
 						</div>
@@ -74,7 +73,8 @@
 							</div>
 						</figcaption>
 					</figure>
-					<figure>
+                    {{-- ===================================================== --}}
+                    <figure>
 						<div>
 							<img src="{{asset('gallery/images/images(10).jpg')}}" alt="img02" />
 						</div>

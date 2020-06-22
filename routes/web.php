@@ -16,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
+})->name('index');
 
 Route::get('/image-gallery', 'imageGalleryController@index')->name('image-gallery');
+Route::get('/contact-us', 'ContactController@index')->name('contact');
 
 Auth::routes();
 
