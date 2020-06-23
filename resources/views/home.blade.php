@@ -1,7 +1,7 @@
 @extends('user.layouts.master')
 
 @section('title')
-    Rangrezz | Dashboard   
+Rangrezz | Dashboard
 @endsection
 
 @section('content')
@@ -19,10 +19,11 @@
                         <h2>
                             BODY COPY
                         </h2>
-                      
+
                     </div>
                     <div class="body">
-                        <h1 style="text-align: center; text-transform: uppercase;">{{"Welcome ,".auth()->user()->username."!" }}</h1>
+                        <h1 style="text-align: center; text-transform: uppercase;">
+                            {{"Welcome ,".auth()->user()->username."!" }}</h1>
                         <p>
 
                         </p>

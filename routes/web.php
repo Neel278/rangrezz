@@ -23,10 +23,12 @@ Route::get('/contact-us', 'ContactController@index')->name('contact');
 
 Auth::routes();
 
-Route::middleware('auth')->group(function() {
-    Route::get('/home', 'HomeController@index')->name('home'); 
-    Route::get('/settings','SettingsController@index')->name('settings');
-    Route::patch('/settings/edit-profile','SettingsController@editProfile')->name('settings.profile');
-    Route::put('/settings/edit-email','SettingsController@editEmail')->name('settings.email');
-    Route::put('/settings/edit-password','SettingsController@editPassword')->name('settings.password');
+Route::middleware('auth')->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/settings', 'SettingsController@index')->name('settings');
+    Route::patch('/settings/edit-profile', 'SettingsController@editProfile')->name('settings.profile');
+    Route::put('/settings/edit-email', 'SettingsController@editEmail')->name('settings.email');
+    Route::put('/settings/edit-password', 'SettingsController@editPassword')->name('settings.password');
+    Route::get('/add_auction', 'AuctionController@index')->name('add_auction');
+    Route::post('/add_auction', 'AuctionController@create')->name('auction_post');
 });

@@ -7,7 +7,8 @@
                 <img src="{{asset('dashboard-asset/images/user.png')}}" width="48" height="48" alt="User" />
             </div>
             <div class="info-container">
-            <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->firstname." ".auth()->user()->lastname }}</div>
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ auth()->user()->firstname." ".auth()->user()->lastname }}</div>
                 <div class="email">{{ auth()->user()->email }}</div>
                 <!--<div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
@@ -41,7 +42,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="add_auction.php">
+                    <a href="{{route('add_auction')}}">
                         <i class="material-icons">playlist_add</i>
                         <span>Add Auction</span>
                     </a>
@@ -53,7 +54,7 @@
                     </a>
                 </li>
                 <li>
-                    <form action="/logout" method="post" id="logout-form" >
+                    <form action="/logout" method="post" id="logout-form">
                         @csrf
                         <a href="javascript:$('#logout-form').submit();" class="logout" type="submit">
                             <i class="material-icons">power_settings_new</i>
@@ -61,8 +62,8 @@
                         </a>
                     </form>
                 </li>
-                
-                
+
+
 
                 <!--<li>
                     <a href="javascript:void(0);" class="menu-toggle">
@@ -384,15 +385,15 @@
             </ul>
         </div>
          #Menu -->
-        <!-- Footer -->
-    </ul>
-</div>
+                <!-- Footer -->
+            </ul>
+        </div>
         <div class="legal">
             <div class="copyright">
                 &copy; 2019 - 2020 <a href="javascript:void(0);">Rangrezz | All rights reserved</a>.
             </div>
             <div class="version">
-                <b>Version: </b> 1.0.0
+                <b>Version: </b> 2.0.0
             </div>
         </div>
         <!-- #Footer -->
