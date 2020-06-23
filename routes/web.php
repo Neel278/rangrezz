@@ -30,5 +30,5 @@ Route::middleware('auth')->group(function () {
     Route::put('/settings/edit-email', 'SettingsController@editEmail')->name('settings.email');
     Route::put('/settings/edit-password', 'SettingsController@editPassword')->name('settings.password');
     Route::get('/add_auction', 'AuctionController@index')->name('add_auction');
-    Route::post('/add_auction', 'AuctionController@create')->name('auction_post');
+    Route::post('/add_auction', 'AuctionController@store')->name('auction_post');
 });

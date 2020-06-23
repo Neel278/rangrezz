@@ -35,7 +35,29 @@ class AuctionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedAttr = request()->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'sub-title' => ['required', 'string', 'max:255'],
+            'description' => ['required'],
+            'painting' => ['required', 'file'],
+            'price' => ['required'],
+            'start_date' => ['required'],
+            'end_date' => ['required'],
+        ]);
+        if (request('painting')) {
+            $validatedAttr['painting'] = 'storage/' . request('painting')->store('paintings');
+        }
+        Auction::create([
+            'user_id' => auth()->user()->id,
+            'title' => $validatedAttr['title'],
+            'sub-title' => $validatedAttr['sub-title'],
+            'description' => $validatedAttr['description'],
+            'painting' => $validatedAttr['painting'],
+            'price' => $validatedAttr['price'],
+            'start_date' => $validatedAttr['start_date'],
+            'end_date' => $validatedAttr['end_date'],
+        ]);
+        return redirect()->back()->with('success_auction', 'Auction added successfully!!');
     }
 
     /**

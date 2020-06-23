@@ -23,3 +23,9 @@
     {{ Session::get('success_password') }}
 </div>
 @endif
+
+@if(Session::has('success_auction'))
+<div class="alert alert-success">
+    {{ Session::get('success_auction') }}
+</div>
+@endif

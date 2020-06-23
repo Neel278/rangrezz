@@ -22,6 +22,7 @@ Rangrezz | Add Auction
                     </div>
                     <div class="body">
                         <div class="row">
+                            @include('user.includes.messages')
                             <div class="col-md-4"></div>
                             <div class="col-md-4" style="padding: 2rem;">
                                 <form action="{{route('auction_post')}}" method="post" enctype="multipart/form-data">

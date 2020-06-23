@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'lastname','firstname','gender','address','birthdate','username','secque','answer', 'email', 'password',
+        'lastname', 'firstname', 'gender', 'address', 'birthdate', 'username', 'secque', 'answer', 'email', 'password',
     ];
 
     /**
@@ -36,4 +37,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function auctions()
+    {
+        return $this->hasMany(Auction::class);
+    }
 }

@@ -15,7 +15,17 @@ class CreateAuctionTable extends Migration
     {
         Schema::create('auctions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->string('title');
+            $table->string('sub-title');
+            $table->text('description');
+            $table->text('painting');
+            $table->integer('price');
+            $table->string('start_date');
+            $table->string('end_date');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
