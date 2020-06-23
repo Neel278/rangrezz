@@ -22,12 +22,8 @@ Route::get('/image-gallery', 'imageGalleryController@index')->name('image-galler
 Route::get('/contact-us', 'ContactController@index')->name('contact');
 
 Auth::routes();
-// Route::get('/register', function () {
-//     return view('user.register');
-// })->name('register');
 
-// Route::get('/login', function () {
-//     return view('user.login');
-// })->name('login');
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')->group(function() {
+    Route::get('/home', 'HomeController@index')->name('home'); 
+    Route::get('/settings','SettingsController@index')->name('settings');
+});

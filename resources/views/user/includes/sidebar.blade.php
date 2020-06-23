@@ -29,13 +29,13 @@
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
                 <li>
-                    <a href="../index.php">
+                    <a href="{{ route('index') }}">
                         <i class="material-icons">home</i>
                         <span>Home</span>
                     </a>
                 </li>
                 <li>
-                    <a href="index.php">
+                    <a href="{{ route('home') }}">
                         <i class="material-icons">account_box</i>
                         <span>Dashboard</span>
                     </a>
@@ -47,18 +47,35 @@
                     </a>
                 </li>
                 <li>
-                    <a href="setting.php">
+                    <a href="{{ route('settings') }}">
                         <i class="material-icons">settings_applications</i>
                         <span>Settings</span>
                     </a>
                 </li>
 
+                <style>
+                    button {
+                        background: none!important;
+                        border: none;
+                        padding: 0!important;
+                        /*optional*/
+                        font-family: arial, sans-serif;
+                        /*input has OS specific font-family*/
+                        color: #069;
+                        text-decoration: underline;
+                        cursor: pointer;
+                        }
+                </style>
                 <li>
-                    <a href="../logout.php">
-                        <i class="material-icons">power_settings_new</i>
-                        <span>logout</span>
-                    </a>
+                    <form action="/logout" method="post">
+                        @csrf
+                        <a href="javascript:$('form').submit();" class="logout" type="submit">
+                            <i class="material-icons">power_settings_new</i>
+                            <span>logout</span>
+                        </a>
+                    </form>
                 </li>
+                
                 
 
                 <!--<li>
