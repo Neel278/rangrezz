@@ -26,4 +26,5 @@ Auth::routes();
 Route::middleware('auth')->group(function() {
     Route::get('/home', 'HomeController@index')->name('home'); 
     Route::get('/settings','SettingsController@index')->name('settings');
+    Route::patch('/settings/edit-profile','SettingsController@editProfile')->name('settings.profile');
 });

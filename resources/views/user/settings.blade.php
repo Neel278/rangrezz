@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    
+    <br><br><br>
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
@@ -23,6 +23,13 @@
                     </div>
                     <div class="body">  
                         <div class="row">
+                            @if(!$errors->isEmpty())
+                                <div class = "alert alert-danger">                      
+                                    @foreach ($errors->all(':message') as $input_error)
+                                    {{ $input_error }}
+                                    @endforeach 
+                                </div> 
+                            @endif
                             <div class="col-md-4" style="text-align: center;">
                                   <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#defaultModal" name="edit-profile">Edit Profile</button>
                             </div>
@@ -50,18 +57,20 @@
                         <h4 class="modal-title" id="defaultModalLabel">Change Details</h4>
                     </div>
                     <div class="modal-body">
-                        <form class="p-5" action="edit.php" method="post" name="myForm">
+                        <form method="POST" action="{{route('settings.profile')}}">
+                            @csrf
+                            @method('PATCH')
                             <div class="form-group">
                                 <label for="Enter your last name"> lastname: </label>
                                 <div class="form-line">
-                                <input type="text" class="form-control" placeholder="{{ auth()->user()->lastname }}" id="lname1" name="lname" value="{{ auth()->user()->lastname }}" required>
+                                <input type="text" class="form-control" placeholder="{{ auth()->user()->lastname }}" id="lname1" name="lastname" value="{{ auth()->user()->lastname }}" required>
                                 </div>
                                 
                             </div>
                             <div class="form-group">
                                 <label for="Enter your last name"> Firstname: </label>
                                 <div class="form-line">
-                                    <input type="text" class="form-control" placeholder="{{ auth()->user()->firstname }}" id="fname1" name="fname" value="{{ auth()->user()->firstname }}" required>
+                                    <input type="text" class="form-control" placeholder="{{ auth()->user()->firstname }}" id="fname1" name="firstname" value="{{ auth()->user()->firstname }}" required>
                                 </div>
                             </div>
 
@@ -73,13 +82,14 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="Enter your last name">Username: </label>
+                                <label for="username">Username:</label>
                                 <div class="form-line">
-                                    <input type="text" class="form-control" placeholder="{{ auth()->user()->username }}" id="username" name="uname" value="{{ auth()->user()->username }}" required>
+                                    <input class="form-control" id="username" name="username" placeholder="{{ auth()->user()->username }}" value="{{ auth()->user()->username }}" required>
                                 </div>
                             </div>
+
                             <div class="form-group">
-                                <button id="submit" type="Submit" class="btn btn-primary" name="edit">Submit</button>
+                                <button type="submit" class="btn btn-primary p-4">Save</button>
                             </div> 
                         </form>
                     </div>
