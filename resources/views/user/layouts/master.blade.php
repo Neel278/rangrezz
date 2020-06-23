@@ -1,5 +1,7 @@
-@include('includes.header')
+@include('user.includes.header')
+
+@include('user.includes.sidebar')
 
 @yield('content')
 
-@include('includes.footer')
+@include('user.includes.footer')
