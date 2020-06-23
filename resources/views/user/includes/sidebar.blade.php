@@ -52,24 +52,10 @@
                         <span>Settings</span>
                     </a>
                 </li>
-
-                <style>
-                    button {
-                        background: none!important;
-                        border: none;
-                        padding: 0!important;
-                        /*optional*/
-                        font-family: arial, sans-serif;
-                        /*input has OS specific font-family*/
-                        color: #069;
-                        text-decoration: underline;
-                        cursor: pointer;
-                        }
-                </style>
                 <li>
-                    <form action="/logout" method="post">
+                    <form action="/logout" method="post" id="logout-form" >
                         @csrf
-                        <a href="javascript:$('form').submit();" class="logout" type="submit">
+                        <a href="javascript:$('#logout-form').submit();" class="logout" type="submit">
                             <i class="material-icons">power_settings_new</i>
                             <span>logout</span>
                         </a>

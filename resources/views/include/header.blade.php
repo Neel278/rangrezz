@@ -83,6 +83,14 @@ box-shadow: 19px 19px 50px -17px rgba(0,0,0,0.5);
           <li class="line"><a class="out animsition-link" href="{{ route('image-gallery') }}">GALLERY</a></li>
           @auth
           <li class="line"><a class="out animsition-link" href="{{ route('home') }}">DASHBOARD</a></li>
+          <li class="line">
+            <form action="/logout" method="post" id="logout-form1" >
+              @csrf
+              <a href="javascript:$('#logout-form1').submit();" class="logout out animsition-link" type="submit">
+                  LOGOUT
+              </a>
+          </form>
+          </li>
             @else
           <li class="line"><a class="out animsition-link" href="{{ route('register') }}">REGISTER</a></li>
           <li class="line"><a class="out animsition-link" href="{{ route('login') }}">LOGIN</a></li>

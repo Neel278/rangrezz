@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <br><br><br>
+    <br><br><br><br><br><br>
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
@@ -23,13 +23,7 @@
                     </div>
                     <div class="body">  
                         <div class="row">
-                            @if(!$errors->isEmpty())
-                                <div class = "alert alert-danger">                      
-                                    @foreach ($errors->all(':message') as $input_error)
-                                    {{ $input_error }}
-                                    @endforeach 
-                                </div> 
-                            @endif
+                            @include('user.includes.messages')
                             <div class="col-md-4" style="text-align: center;">
                                   <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#defaultModal" name="edit-profile">Edit Profile</button>
                             </div>
@@ -105,11 +99,19 @@
                         <h4 class="modal-title" id="defaultModalLabel1">Change Email</h4>
                     </div>
                     <div class="modal-body">          
-                        <form class="p-5" action="edit.php" method="post" name="myForm">
+                        <form class="p-5" action="{{ route('settings.email') }}" method="post" name="myForm">
+                            @csrf
+                            @method('PUT')
                             <div class="form-group">
-                                <label for="Enter your last name">Email: </label>
+                                <label for="email">Email: </label>
                                 <div class="form-line">
                                     <input type="text" class="form-control" placeholder="{{ auth()->user()->email }}" id="email" name="email" value="{{ auth()->user()->email }}" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password: </label>
+                                <div class="form-line">
+                                    <input type="password" class="form-control" placeholder="Enter Your Password To Change Details" id="password" name="password" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -133,7 +135,7 @@
                         <script type="text/javascript">
                             function check()
                             {
-                            var password = document.getElementById('npass').value;
+                            var password = document.getElementById('opass').value;
                             var cpassword = document.getElementById('cpass').value;
                             if(password!=cpassword)
                             {
@@ -144,26 +146,29 @@
                                 }
                             }
                         </script>
-                        <form class="p-5" action="edit.php" method="post" name="myForm">
+                        <form class="p-5" action="{{ route('settings.password') }}" method="post" name="myForm">
+                            @csrf
+                            @method('PUT')
                             <div class="form-group">
-                                    <label for="Enter your last name"> Old Password: </label>
+                                <label for="Enter your last name"> Old Password: </label>
                                 <div class="form-line">
                                     <input type="password" class="form-control" name="pass" id="opass" required>
                                 </div>
                             </div>
-                                <div class="form-group">
-                                    <label for="Enter your last name"> New Password: </label>
+                            <div class="form-group">
+                                <label for="Enter your last name"> Confirm Password: </label>
                                 <div class="form-line">
-                                    <input type="password" class="form-control" name="pass_confirmation" id="npass" required>
-                                </div>
-                            </div>
-                                <div class="form-group">
-                                    <label for="Enter your last name"> Confirm Password: </label>
-                                <div class="form-line">
-                                    <input type="password" class="form-control" name="cpass" id="cpass" required>
+                                    <input type="password" class="form-control" name="pass_confirmation" id="cpass" required>
                                 </div>
                             <div id="result" style="color: red;"></div>
                             </div>
+                            <div class="form-group">
+                                <label for="Enter your last name"> New Password: </label>
+                                <div class="form-line">
+                                    <input type="password" class="form-control" name="password" id="npass" required>
+                                </div>
+                            </div>
+                            
                             <div class="form-group">
                                 <button onclick="return check()" id="submit-pass" type="Submit" class="btn btn-primary" name="edit2" >Submit</button>
                             </div> 
