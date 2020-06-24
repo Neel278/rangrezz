@@ -23,12 +23,11 @@ class PaintingController extends Controller
     }
     public function edit(Auction $painting)
     {
-        //++++++++++++++++++++ bidding still needs work do it **********************************************
-        // dd($painting);
         $painting_db = Auction::where('id', $painting->id)->first();
         $validatedAttr = request()->validate([
             'bidamount' => ['required', 'integer']
         ]);
+        // $new_bid = (int) $validatedAttr['bidamount'];
         // dd($validatedAttr['bidamount'], $painting_db->price);
         if ($validatedAttr['bidamount'] > $painting_db->price) {
             $painting->update([

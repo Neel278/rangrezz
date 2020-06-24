@@ -57,7 +57,9 @@ Rangrezz | Buy Painting
                                                 <br>
                                                 Ending On:
                                                 <p id="demo">{{ $painting->end_date }}</p>
-                                                <p>Current bid : Rs.{{ $painting->price }}</p>
+                                                <p>Current bid :
+                                                    Rs.{{ $painting->bidded_price > 0 ? $painting->bidded_price : $painting->price }}
+                                                </p>
                                                 <p></p>
                                                 <form method="post"
                                                     action="{{ route('bidding',['painting'=>$painting->id]) }}">
@@ -68,8 +70,8 @@ Rangrezz | Buy Painting
                                                     <div class="form-group">
                                                         <div class="form-line">
                                                             <input type="number"
-                                                                min="{{ $painting->bidded_price > 0 ? $painting->bidded_price : $painting->price +1 }}"
-                                                                value="{{ $painting->bidded_price > 0 ? $painting->bidded_price : $painting->price + 1}}"
+                                                                min="{{ $painting->bidded_price > 0 ? $painting->bidded_price + 1: $painting->price +1 }}"
+                                                                value="{{ $painting->bidded_price > 0 ? $painting->bidded_price + 1: $painting->price + 1}}"
                                                                 name="bidamount" class="form-control" />
                                                         </div>
                                                     </div>
