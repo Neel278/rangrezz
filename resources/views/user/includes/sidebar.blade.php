@@ -42,6 +42,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('auction') }}">
+                        <i class="material-icons">leaderboard</i>
+                        <span>Auctions</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{route('add_auction')}}">
                         <i class="material-icons">playlist_add</i>
                         <span>Add Auction</span>
