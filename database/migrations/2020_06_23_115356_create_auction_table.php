@@ -21,8 +21,9 @@ class CreateAuctionTable extends Migration
             $table->text('description');
             $table->text('painting');
             $table->integer('price');
-            $table->string('start_date');
             $table->string('end_date');
+            $table->boolean('status')->default('0');
+            $table->integer('bidded_price')->default('0');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

@@ -52,15 +52,9 @@ Rangrezz | Add Auction
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Starting Price </label>
+                                        <label>Bidding Price </label>
                                         <div class="form-line">
                                             <input type="text" name="price" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Starting Date </label>
-                                        <div class="form-line">
-                                            <input type="datetime-local" name="start_date" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group">

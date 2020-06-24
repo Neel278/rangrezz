@@ -34,15 +34,16 @@ Rangrezz | Auctions
                                 </thead>
                                 <tbody>
                                     @foreach ($paintings as $painting)
-
                                     <tr>
-                                        <td><img src="{{ $painting->painting }}" alt=""
-                                                style="height: 200px; width: 200px;"></td>
+                                        <td>
+                                            <img src="{{ $painting->painting }}" alt="painting"
+                                                style="height: 170px; width: 200px;">
+                                        </td>
                                         <td>{{ $painting->title }}</td>
                                         <td>{{ $painting->price }}</td>
                                         <td>{{ date("d/m/y g:i A",strtotime($painting->end_date)) }}</td>
                                         <td>
-                                            <a href="showauction.php?id={{ $painting->id }}">
+                                            <a href="{{ route('showauction',['painting'=>$painting->id]) }}">
                                                 <button type="button" class="btn btn-info">
                                                     Bid
                                                 </button>
@@ -60,4 +61,12 @@ Rangrezz | Auctions
         <!-- #END# Body Copy -->
     </div>
 </section>
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $('table').DataTable();
+
+        $('.dataTables_length').css('display','none');
+    });
+</script>
 @endsection

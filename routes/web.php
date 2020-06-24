@@ -32,4 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/add_auction', 'AuctionController@index')->name('add_auction');
     Route::post('/add_auction', 'AuctionController@store')->name('auction_post');
     Route::get('/auction', 'PaintingController@index')->name('auction');
+    Route::get('/showauction/{painting}', 'PaintingController@show')->name('showauction');
+    Route::get('/change_id/{painting}', 'PaintingController@update')->name('change_id');
+    Route::post('/bidding/{painting}', 'PaintingController@edit')->name('bidding');
 });

@@ -31,7 +31,6 @@ class AuctionController extends Controller
             'description' => ['required'],
             'painting' => ['required', 'file'],
             'price' => ['required'],
-            'start_date' => ['required'],
             'end_date' => ['required'],
         ]);
         if (request('painting')) {
@@ -44,7 +43,6 @@ class AuctionController extends Controller
             'description' => $validatedAttr['description'],
             'painting' => $validatedAttr['painting'],
             'price' => $validatedAttr['price'],
-            'start_date' => $validatedAttr['start_date'],
             'end_date' => $validatedAttr['end_date'],
         ]);
         return redirect()->back()->with('success_auction', 'Auction added successfully!!');

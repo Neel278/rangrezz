@@ -29,3 +29,15 @@
     {{ Session::get('success_auction') }}
 </div>
 @endif
+
+@if(Session::has('success_bidding'))
+<div class="alert alert-success">
+    {{ Session::get('success_bidding') }}
+</div>
+@endif
+
+@if(Session::has('success_painting'))
+<div class="alert alert-success">
+    {{ Session::get('success_painting') }}
+</div>
+@endif
