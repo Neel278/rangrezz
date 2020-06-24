@@ -38,6 +38,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/activity','ActivityController@index')->name('activity');
     Route::get('/your_auctions','ActivityController@yourAuctions')->name('your_auctions');
     Route::get('/winning_auctions','ActivityController@winningAuctions')->name('winning_auctions');
-    Route::get('/solded_paintings','ActivityController@soldedPainting')->name('solded_paintings');
+    Route::get('/solded_paintings/{painting}','ActivityController@soldedPainting')->name('solded_paintings');
     Route::get('/claim_paintings','ActivityController@claimPainting')->name('claim_paintings');
 });

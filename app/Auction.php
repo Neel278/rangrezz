@@ -11,6 +11,10 @@ class Auction extends Model
     ];
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('App\User','user_id');
+    }
+    public function users()
+    {
+        return $this->belongsTo('App\User','owner_id');
     }
 }

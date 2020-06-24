@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Auction;
+use App\User;
 
 class ActivityController extends Controller
 {
@@ -27,9 +28,18 @@ class ActivityController extends Controller
     		])->latest()->get(),
     	]);
     }
-    public function soldedPainting()
+    public function soldedPainting(Auction $painting)
     {
-    	return view('user.activity.solded_paintings');
+    	$painting = Auction::where('id',$painting->id)->first();
+    	if($painting->user_id == auth()->user()->id){
+    		$buyer = User::where('id',$painting->bidder_id)->first();
+    		return view('user.activity.solded_paintings',[
+    			'painting' => $painting,
+    			'buyer' => $buyer
+    		]);
+    	}else{
+    		return redirect()->route('your_auctions')->withErrors('You can see onlu your paintings!!');
+    	}
     }
     public function claimPainting()
     {

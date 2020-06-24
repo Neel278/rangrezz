@@ -56,7 +56,7 @@
                                         <td>{{ date("d/m/y g:i A",strtotime($painting->end_date)) }}</td>
                                         @if($painting->status == 1 && $painting->bidder_id != 0)
                                         <td>
-                                        	<a href="{{route('solded_paintings')}}">
+                                        	<a href="{{route('solded_paintings',['painting'=>$painting->id])}}">
                                         		<button type="button" class="btn btn-info">
                                         			Congratulations Sold!!
                                         		</button>
