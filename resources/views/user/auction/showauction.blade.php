@@ -77,7 +77,6 @@ Rangrezz | Buy Painting
                                                     </div>
                                                     <button type="submit" id="bid" class="btn btn-info"
                                                         name="bid">Bid</button>
-
                                                 </form>
                                             </div>
                                         </div>

@@ -43,6 +43,7 @@ class PaintingController extends Controller
     }
     public function update(Auction $painting)
     {
+        // dd('inside update');
         $painting = Auction::where('id', $painting->id)->first();
         $painting->update([
             'status' => 1

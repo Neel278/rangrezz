@@ -54,6 +54,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('activity') }}">
+                        <i class="material-icons">history</i>
+                        <span>Activity</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('settings') }}">
                         <i class="material-icons">settings_applications</i>
                         <span>Settings</span>

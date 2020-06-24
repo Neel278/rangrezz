@@ -58,7 +58,7 @@ Rangrezz | Add Auction
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Ending Date </label>
+                                        <label>Ending Date (24 hour format)</label>
                                         <div class="form-line">
                                             <input type="datetime-local" name="end_date" class="form-control">
                                         </div>
