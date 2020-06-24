@@ -55,7 +55,7 @@
                                         <td>{{ $painting->bidded_price }}</td>
                                         <td>{{ date("d/m/y g:i A",strtotime($painting->end_date)) }}</td>
                                         <td>
-                                        	<a href="{{route('claim_paintings')}}">
+                                        	<a href="{{route('claim_paintings',['painting'=>$painting->id])}}">
                                         		<button type="button" class="btn btn-info">
                                         			Congratulations Claim!!
                                         		</button>

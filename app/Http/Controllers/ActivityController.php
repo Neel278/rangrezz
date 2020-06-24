@@ -41,8 +41,18 @@ class ActivityController extends Controller
     		return redirect()->route('your_auctions')->withErrors('You can see onlu your paintings!!');
     	}
     }
-    public function claimPainting()
+    public function claimPainting(Auction $painting)
     {
-    	return view('user.activity.claim_paintings');
+    	$painting = Auction::where('id',$painting->id)->first();
+    	// dd($painting);
+    	if($painting->bidder_id == auth()->user()->id){
+    		$seller = User::where('id',$painting->user_id)->first();
+    		return view('user.activity.claim_paintings',[
+    			'painting' => $painting,
+    			'seller' => $seller
+    		]);
+    	}else{
+    		return redirect()->route('winning_auctions')->withErrors('You can see onlu your paintings!!');
+    	}
     }
 }
