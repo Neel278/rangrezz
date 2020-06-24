@@ -47,10 +47,11 @@ class PaintingController extends Controller
         $painting->update([
             'status' => 1
         ]);
+        // dd($painting->bidder_id);
         Bidding::create([
             'owner_id' => $painting->user_id,
             'auction_id' => $painting->id,
-            'user_id' => $painting->bidder_id,
+            'user_id' => $painting->bidder_id == 0 ? $painting->user_id : $painting->bidder_id,
         ]);
         return redirect()->route('auction')->with('success_painting', 'Painting Sold');
     }
