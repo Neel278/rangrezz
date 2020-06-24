@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Auction;
+use App\Bidding;
 use Illuminate\Http\Request;
 
 class PaintingController extends Controller
@@ -27,11 +28,13 @@ class PaintingController extends Controller
         $validatedAttr = request()->validate([
             'bidamount' => ['required', 'integer']
         ]);
+        // dd(auth()->user()->id);
         // $new_bid = (int) $validatedAttr['bidamount'];
         // dd($validatedAttr['bidamount'], $painting_db->price);
         if ($validatedAttr['bidamount'] > $painting_db->price) {
             $painting->update([
                 'bidded_price' => $validatedAttr['bidamount'],
+                'bidder_id' => auth()->user()->id,
             ]);
             return redirect()->back()->with('success_bidding', 'Your bid added succesfully !!');
         } else {
@@ -43,6 +46,11 @@ class PaintingController extends Controller
         $painting = Auction::where('id', $painting->id)->first();
         $painting->update([
             'status' => 1
+        ]);
+        Bidding::create([
+            'owner_id' => $painting->user_id,
+            'auction_id' => $painting->id,
+            'user_id' => $painting->bidder_id,
         ]);
         return redirect()->route('auction')->with('success_painting', 'Painting Sold');
     }
